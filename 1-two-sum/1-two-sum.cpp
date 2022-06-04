@@ -23,7 +23,7 @@ public:
     return res;
     */
         
-        
+   
         
     // another solution 
     //    O(n * lg(n))
@@ -48,7 +48,5 @@ public:
         
     // else return an empty vector.    
     return {};
-   
 }
-
 };
