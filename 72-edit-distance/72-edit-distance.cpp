@@ -4,11 +4,9 @@ public:
         return std::min(std::min(a, b), c);
     }
     
-   int minDistance(string str1, string str2){
+   int minDistance(string& str1, string& str2){
        
-    int gapCost = 1, mismatchCost = 1; 
-
-    int len1 = str1.length();
+   int len1 = str1.length();
     int len2 = str2.length();
 
     // table of costs
@@ -16,29 +14,22 @@ public:
 
     for (int i = 0; i <= len1; ++i) {
         for (int j = 0; j <= len2; ++j) {
-
-            // If first string is empty, the only option is to
-            // insert all characters of the other string
             // number of ops (cost) = the len of the other string
             if (i == 0){
-                DP[i][j] = j * gapCost;
+                DP[i][j] = j;
             }
-
-            // If second string is empty, the only option is to
-            // insert all characters of the other string
             // number of ops (cost) = the len of the other string
             else if (j == 0)
             {
-                DP[i][j] = i * gapCost;
+                DP[i][j] = i;
             }
-
             else {
-                // 0 cost for match
-                int misCost = (str1[i - 1] == str2[j - 1] ? 0 : mismatchCost);
+                // 0 cost for match, 1 for mismatch
+                int matchingCost = (str1[i - 1] == str2[j - 1] ? 0 : 1);
 
-                DP[i][j] = min(DP[i - 1][j - 1] + misCost,// diagonal (replace)
-                               DP[i - 1][j] + gapCost, // (delete)
-                               DP[i][j - 1] + gapCost); // (insert)
+                DP[i][j] = min(DP[i - 1][j - 1] + matchingCost,// diagonal (replace)
+                               DP[i - 1][j] + 1, // (delete)
+                               DP[i][j - 1] + 1); // (insert)
             }
         }
     }
