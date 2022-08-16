@@ -7,11 +7,11 @@ public:
        while(left <= right){
             
             int16_t m = left + (right - left) / 2;
-            int tmp = nums[m];
-            if(tmp == target){
+            
+            if(nums[m] == target){
                 return m;
             }
-            else if(tmp > target){
+            else if(nums[m] > target){
                 right = m - 1;
             }
             else{
@@ -19,8 +19,5 @@ public:
             }
         }
         return -1;
-        
-        
-        
     }
 };
