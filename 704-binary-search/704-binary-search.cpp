@@ -1,6 +1,7 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
+        
         int16_t left = 0;
         int16_t right = nums.size() - 1;
         
