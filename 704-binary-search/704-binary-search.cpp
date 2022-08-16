@@ -6,8 +6,8 @@ public:
         
         
         
-        int left = 0;
-        int right = nums.size() - 1;
+        int16_t left = 0;
+        int16_t right = nums.size() - 1;
         
        while(left <= right){
             
