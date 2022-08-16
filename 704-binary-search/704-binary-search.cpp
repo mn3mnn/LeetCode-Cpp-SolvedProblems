@@ -14,7 +14,8 @@ public:
             }
             else if(nums[m] > target){
                 right = m - 1;
-            }
+                nums.erase(nums.begin() + m + 1, nums.end());
+            } 
             else{
                 left = m + 1;
             }
