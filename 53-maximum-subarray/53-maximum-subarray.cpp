@@ -17,10 +17,12 @@ public:
     //        dp[i] = max(nums[i], dp[j] + nums[i]);
             dp[i] = (nums[i] > dp[j] + nums[i] ? nums[i] : dp[j] + nums[i]);
             j++;
-            max_sum = (dp[i] > max_sum ? dp[i] : max_sum);
+            if (dp[i] > max_sum){
+                max_sum = dp[i];
+            }
         }
     //    int max_sum = *max_element(dp.begin(), dp.end());
         return max_sum;
     }
-
+    
 };
