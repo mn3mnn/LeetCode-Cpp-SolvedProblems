@@ -15,7 +15,8 @@ public:
 
         int j = 0;
         for (int i = 1; i < sz; ++i) {
-            dp[i] = max(nums[i], dp[j] + nums[i]);
+            dp[i] = (nums[i] > dp[j] + nums[i] ? nums[i] : dp[j] + nums[i]);
+            // dp[i] = max(nums[i], dp[j] + nums[i]);
             j++;
         }
 
