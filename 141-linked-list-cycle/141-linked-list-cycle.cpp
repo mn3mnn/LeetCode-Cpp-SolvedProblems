@@ -14,7 +14,7 @@ public:
 
     bool hasCycle(ListNode *head) {
 
-        if (head == NULL){
+        if (head == NULL || head->next==NULL){
             return false;
         }
 
