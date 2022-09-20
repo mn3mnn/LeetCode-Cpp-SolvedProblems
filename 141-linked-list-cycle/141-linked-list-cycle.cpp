@@ -11,25 +11,28 @@ class Solution {
 public:
 
 
+
     bool hasCycle(ListNode *head) {
-        
+
         if (head == NULL){
             return false;
         }
 
-        vector<ListNode*> vec;
-        vec.push_back(NULL);
+        map<ListNode*, int> mp;
+    //    vector<ListNode*> vec;
+    //    vec.push_back(NULL);
         ListNode *tmp = head;
 
         while (tmp->next != NULL){
-            if (std::find(vec.begin(), vec.end(), tmp) != vec.end()){
+            mp[tmp]++;
+            if (mp[tmp] > 1){
                 return true;
             }
-            vec.push_back(tmp);
+    //        vec.push_back(tmp);
             tmp = tmp->next;
         }
-        return false;
 
+        return false;
     }
 };
 
